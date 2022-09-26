@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hd6Qnv2TDMMjUDlpRxpM7uYrudVHF3aXvS/BCyC62AzLDmhKgPBEMkvrSwNJQF8wRp721r67SNWEUeZJ9nfRbA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rdbla\\workspace\\csharp\\heist\\heist.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rdbla\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
