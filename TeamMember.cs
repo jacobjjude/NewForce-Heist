@@ -1,6 +1,6 @@
 using System;
 
-namespace heist_example
+namespace heist
 {
     public class TeamMember
     {

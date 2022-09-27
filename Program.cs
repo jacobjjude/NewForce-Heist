@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace heist_example
+namespace heist
 {
     class Program
     {
         static void Main(string[] args)
         {
+            int BankLevel;
+            int CrewLevel = 0;
+            int Counter;
+            
             List<TeamMember> HeistTeam = new List<TeamMember>();
             double courage;
             Console.WriteLine("Plan your heist!");
             Console.WriteLine("---------");
+
+            Console.WriteLine("How difficult is this bank? ");
+            BankLevel = int.Parse(Console.ReadLine());
 
             while (true)
             {
@@ -51,14 +58,52 @@ namespace heist_example
             HeistTeam.Add(Fodder);
             }
 
-            Console.WriteLine($"Here's the suckers... *cough cough*, I mean crew ({HeistTeam.Count})");
-            Console.WriteLine("-----------------");
+            while(true)
+            {
+                Console.WriteLine("How many times would you like to run the test scenario?");
+                Counter = int.Parse(Console.ReadLine());
+
+                if (Counter > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        
+
             HeistTeam.ForEach(x => {
-                Console.WriteLine($"Name: {x.Name}");
-                Console.WriteLine($"Skill: {x.Skill}");
-                Console.WriteLine($"Courage: {x.Courage}");
-                Console.WriteLine();
+                CrewLevel += x.Skill;
             });
+
+            while (Counter > 0)
+            {
+            int Luck = RollTheDice();
+            if (CrewLevel > (BankLevel + Luck))
+            {
+                Console.WriteLine("You did it! You robbed the bank! Now for the escape, good luck ;)");
+            } else if ((BankLevel + Luck) > CrewLevel)
+            {
+                Console.WriteLine("Oof. Busted. Better luck next time in 5 - 10 years... Wait, where's Jacob?");
+            } else
+            {
+                Console.WriteLine("I don't know how you reached this point... maybe the world ended in the middle of your heist?");
+            }
+            Counter--;
+            
+            Console.WriteLine($"Crew Level: {CrewLevel}");
+            Console.WriteLine($"Bank Level: {BankLevel + Luck}");
+            }
+
+            
+        }
+
+        static int RollTheDice()
+        {
+            int nr = new Random().Next(-10, 10);
+            return nr;
         }
     }
 }
