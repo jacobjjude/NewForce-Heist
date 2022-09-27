@@ -10,7 +10,8 @@ namespace heist
             int BankLevel;
             int CrewLevel = 0;
             int Counter;
-            
+            int Success = 0;
+            int Fail = 0;
             List<TeamMember> HeistTeam = new List<TeamMember>();
             double courage;
             Console.WriteLine("Plan your heist!");
@@ -84,9 +85,11 @@ namespace heist
             if (CrewLevel > (BankLevel + Luck))
             {
                 Console.WriteLine("You did it! You robbed the bank! Now for the escape, good luck ;)");
+                Success++;
             } else if ((BankLevel + Luck) > CrewLevel)
             {
                 Console.WriteLine("Oof. Busted. Better luck next time in 5 - 10 years... Wait, where's Jacob?");
+                Fail++;
             } else
             {
                 Console.WriteLine("I don't know how you reached this point... maybe the world ended in the middle of your heist?");
@@ -96,7 +99,8 @@ namespace heist
             Console.WriteLine($"Crew Level: {CrewLevel}");
             Console.WriteLine($"Bank Level: {BankLevel + Luck}");
             }
-
+            Console.WriteLine();
+            Console.WriteLine($"Successful runs {Success}, failed runs {Fail}");
             
         }
 
